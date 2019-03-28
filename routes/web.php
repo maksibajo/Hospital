@@ -22,5 +22,5 @@ Route::post('/login', 'SessionController@store');
 Route::get('/logout', 'SessionController@destroy');
 
 Route::get('/admin', function () {
-    return 'Only for Admin';
+    return 'This sector is only for admin';
 })->middleware('admin');
