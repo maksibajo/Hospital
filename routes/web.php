@@ -13,4 +13,14 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
+
+Route::get('/login', 'SessionController@create')->name('login');
+
+Route::post('/login', 'SessionController@store');
+
+Route::get('/logout', 'SessionController@destroy');
+
+Route::get('/admin', function () {
+    return 'Only for Admin';
+})->middleware('admin');
